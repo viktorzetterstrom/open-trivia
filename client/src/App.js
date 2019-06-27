@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Options from './components/Options';
+import Loader from './components/Loader';
 import './App.css';
 
 function App() {
-  const [questions, setQuestions] = useState(null);
   const [options, setOptions] = useState(null);
-
-  useEffect(() => {
-    fetch('/api/questions')
-      .then(res => res.text())
-      .then(setQuestions);
-  }, []);
 
   useEffect(() => {
     fetch('/api/options')
@@ -24,7 +18,7 @@ function App() {
       {
         options
           ? <Options options={options} />
-          : <div>Spinner</div>
+          : <Loader />
       }
     </div>
   );
