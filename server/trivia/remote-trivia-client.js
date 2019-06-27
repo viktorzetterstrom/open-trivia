@@ -3,15 +3,16 @@ const fetch = require('node-fetch');
 const baseUrl = 'https://opentdb.com/api.php?';
 
 const createQuery = ({
-  amount = 1,
+  amount = 10,
   difficulty,
   category,
   type,
 }) => {
   const am = `amount=${amount}`;
-  const dif = difficulty ? `&difficulty=${difficulty}` : '';
-  const cat = category ? `&difficulty=${category}` : '';
-  const tp = type ? `&type=${type}` : '';
+  const cat = category && category !== 'any' ? `&category=${category}` : '';
+  const dif = difficulty && difficulty !== 'any' ? `&difficulty=${difficulty}` : '';
+  const tp = type && type !== 'any' ? `&type=${type}` : '';
+  console.log(baseUrl + am + dif + cat + tp);
   return baseUrl + am + dif + cat + tp;
 };
 

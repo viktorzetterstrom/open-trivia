@@ -9,5 +9,8 @@
   },
   "author": "Viktor Zetterström",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "eslint-plugin-react": "^7.14.2"
+  }
 }

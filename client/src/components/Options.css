@@ -1,0 +1,21 @@
+.options {
+  background-color: beige;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+  transition: 0.5s linear;
+}
+
+.options--hidden {
+  padding: 0;
+  height: 0;
+}
+
+.options__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.options__form__select {
+  text-transform: capitalize;
+}

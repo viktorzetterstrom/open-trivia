@@ -1,37 +1,42 @@
-import React, { useState } from 'react';
-import useInput from '../hooks/use-input';
+import React, { useState, useEffect } from 'react';
+import './Options.css';
 
-export default function Options({ options }) {
+export default function Options({ changeOptions, options }) {
+  const [difficulty, setDifficulty] = useState('any');
+  const [type, setType] = useState('any');
+  const [category, setCategory] = useState('any');
 
-  const { value:difficulty, bind:bindDifficulty, reset:resetDifficulty } = useInput('any');
-  const { value:type, bind:bindType, reset:resetType } = useInput('any');
-  const { value:category, bind:bindCategory, reset:resetCategory } = useInput(9);
+  useEffect(() => {
+    changeOptions({ difficulty, type, category });
+  }, [difficulty, type, category]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Submitting ${difficulty} ${type} ${category}`);
+  const handleChange = (e) => {
+    switch (e.target.id) {
+      case 'difficulty': setDifficulty(e.target.value); break;
+      case 'type': setType(e.target.value); break;
+      case 'category': setCategory(e.target.value); break;
+      default:
+    }
   };
 
   return (
-    <div>
-      <h2>Options</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="options">
+      <h2 className="options__header">Options</h2>
+      <form onChange={handleChange} className="options__form" >
         <label htmlFor="difficulty">Difficulty</label>
-        <select {...bindDifficulty} id="difficulty" name="difficulty">
+        <select  id="difficulty" className="options__form__select" name="difficulty">
           { options.difficulty.map((d, i) => <option key={i} value={d}>{d}</option>) }
         </select>
 
         <label htmlFor="type">Type</label>
-        <select {...bindType} id="type" name="type">
+        <select onChange={handleChange} id="type" className="options__form__select" name="type">
           { options.type.map((t, i) => <option key={i} value={t}>{t}</option>) }
         </select>
 
         <label htmlFor="category">Category</label>
-        <select {...bindCategory} id="category" name="category">
+        <select onChange={handleChange} id="category" className="options__form__select" name="category">
           { options.category.map((c, i) => <option key={i} value={c.id}>{c.name}</option>)}
         </select>
-
-        <button>Change settings</button>
       </form>
     </div>
   );

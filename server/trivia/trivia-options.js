@@ -1,7 +1,8 @@
 module.exports = {
   difficulty: ['any', 'easy', 'medium', 'hard'],
-  type: ['multiple', 'boolean'],
+  type: ['any', 'multiple', 'boolean'],
   category: [
+    { id: 0, name: 'Any' },
     { id: 9, name: 'General Knowledge' },
     { id: 10, name: 'Entertainment: Books' },
     { id: 11, name: 'Entertainment: Film' },
