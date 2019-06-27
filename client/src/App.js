@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import Options from './components/Options';
 import './App.css';
 
 function App() {
-  const [test, setTest] = useState('foo');
+  const [questions, setQuestions] = useState(null);
+  const [options, setOptions] = useState(null);
 
   useEffect(() => {
-    fetch('/testing')
+    fetch('/api/questions')
       .then(res => res.text())
-      .then(setTest);
-  }, [test]);
+      .then(setQuestions);
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/options')
+      .then(res => res.json())
+      .then(setOptions);
+  }, []);
 
   return (
     <div className="App">
-      <p>{ test }</p>
+      <h1>Who wants to be a &lt;/saltionnaire&gt;</h1>
+      {
+        options
+          ? <Options options={options} />
+          : <div>Spinner</div>
+      }
     </div>
   );
 }
