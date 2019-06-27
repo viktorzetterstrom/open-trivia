@@ -1,5 +1,6 @@
 .game {
-  border: 1px solid black;
-  margin: 10px;
+  background-color: rgb(238, 238, 238);
   padding: 10px;
+  box-shadow: 0 0 2px black;
 }
+

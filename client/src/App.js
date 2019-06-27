@@ -3,6 +3,7 @@ import Options from './components/Options';
 import Loader from './components/Loader';
 import StartButton from './components/StartButton';
 import Game from './components/Game';
+import Score from './components/Score';
 import './App.css';
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
     category: 'any',
   });
   const [questions, setQuestions] = useState(null);
-  const [options, setOptions] = useState(null);
+  const [startingOptions, setStartingOptions] = useState(null);
+  const [score, setScore] = useState(null);
+  const [showScore, setShowScore] = useState(null);
 
   const hideOptions = () => document.querySelector('.options').classList.add('options--hidden');
   const showOptions = () => document.querySelector('.options').classList.remove('options--hidden');
@@ -30,7 +33,7 @@ function App() {
   useEffect(() => {
     fetch('/api/options')
       .then(res => res.json())
-      .then(setOptions);
+      .then(setStartingOptions);
   }, []);
 
   const startGame = () => {
@@ -40,13 +43,15 @@ function App() {
 
   const stopGame = questions => {
     const score = questions.filter(q => q.answered === 'correct').length;
-    console.log(score);
+    setScore(score);
+    setShowScore(true);
     setRunning(false);
     showOptions();
+    fetchQuestions(gameOptions);
   };
 
-  const optionsArea = (disabled) => options !== null
-    ? <Options disabled={disabled} changeOptions={setGameOptions} options={options} />
+  const optionsArea = () => startingOptions !== null
+    ? <Options changeOptions={setGameOptions} options={startingOptions} />
     : <Loader />;
 
   const gameArea = () => {
@@ -55,11 +60,17 @@ function App() {
     return <StartButton clickHandler={startGame} />;
   };
 
+  const scoreArea = () => {
+    if (!showScore) return <></>;
+    return <Score setShow={setShowScore} score={score} />;
+  };
+
   return (
     <div className="app">
       <h1 className="app__header">&lt;/salt&gt; open trivia</h1>
       { optionsArea(!running) }
       { gameArea() }
+      { scoreArea() }
     </div>
   );
 }

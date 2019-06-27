@@ -2,6 +2,11 @@ body {
   transition: background-color 0.15s ease;
 }
 
+.app {
+  position: relative;
+}
+
+
 .app__header {
   margin: 10px;
   font-size: 1.3rem;

@@ -18,6 +18,10 @@
   color: white;
 }
 
+.answer-button:active {
+  transform: scale(0.97);
+}
+
 .answer-button:focus {
   outline: 0;
 }

@@ -1,5 +1,6 @@
 .options {
   background-color: rgb(238, 238, 238);
+  box-shadow: 0 0 2px black;
   padding: 10px;
   overflow: hidden;
   transition: 0.5s linear;
@@ -33,4 +34,5 @@
   text-transform: capitalize;
   margin: auto;
   width: 80%;
+
 }
