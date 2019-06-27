@@ -1,6 +1,8 @@
 import React from 'react';
 import './Loader.css';
 
-export default function Loader() {
-  return <div className='loader'></div>;
+export default function Loader({ button= false}) {
+  return button
+    ? <div className='loader-button'><div className='loader'></div></div>
+    : <div className='loader'></div>;
 }

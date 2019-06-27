@@ -55,7 +55,7 @@ function App() {
     : <Loader />;
 
   const gameArea = () => {
-    if (questions === null) return <Loader />;
+    if (questions === null) return <Loader button={true} />;
     if (running) return <Game stop={stopGame} questions={questions} />;
     return <StartButton clickHandler={startGame} />;
   };
