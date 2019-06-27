@@ -33,7 +33,7 @@ export default function Game({ setAnswerCorrect, stop, questions }) {
         activeQ !== -1 && qList[activeQ].answered === 'no'
           ? (
             <>
-            <Question data={qList[activeQ].question} />
+            <Question data={qList[activeQ].question} index={activeQ}/>
             <AnswerButtons answers={qList[activeQ].answers} clickHandler={processAnswer} />
             </>
           )
