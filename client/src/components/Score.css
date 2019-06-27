@@ -27,6 +27,11 @@
   text-align: center;
 }
 
+.score__header--number {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
 .score__message {
   text-align: center;
 }
