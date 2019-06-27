@@ -20,7 +20,7 @@ export default function Game({ stop, questions }) {
       ? 'correct'
       : 'incorrect';
     flashScreen(qList[activeQ].answered);
-    getNextQuestion();
+    setTimeout(getNextQuestion, 1600);
   };
 
   return (
@@ -64,8 +64,10 @@ const flashScreen = (answerString) => {
   const color = answerString === 'correct'
     ? 'rgb(142, 196, 137)'
     : 'rgb(255, 126, 126)';
-  document.body.style.backgroundColor = color;
+  setTimeout(() => {
+    document.body.style.backgroundColor = color;
+  }, 500);
   setTimeout(() => {
     document.body.style.backgroundColor = 'white';
-  }, 500);
+  }, 1500);
 };

@@ -23,19 +23,19 @@ export default function Options({ changeOptions, options }) {
     <div className="options">
       <h2 className="options__header">Options</h2>
       <form onChange={handleChange} className="options__form" >
-        <label className="options__form__label">Difficulty
+        <label className="options__form__label">Difficulty:
           <select  id="difficulty" className="options__form__select" name="difficulty">
             { options.difficulty.map((d, i) => <option key={i} value={d}>{d}</option>) }
           </select>
         </label>
 
-        <label className="options__form__label">Type
+        <label className="options__form__label">Type:
           <select onChange={handleChange} id="type" className="options__form__select" name="type">
             { options.type.map((t, i) => <option key={i} value={t}>{t}</option>) }
           </select>
         </label>
 
-        <label className="options__form__label">Category
+        <label className="options__form__label">Category:
           <select onChange={handleChange} id="category" className="options__form__select" name="category">
             { options.category.map((c, i) => <option key={i} value={c.id}>{c.name}</option>)}
           </select>

@@ -1,5 +1,6 @@
 .score {
   position: absolute;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,7 +10,6 @@
   height: 200px;
   width: 200px;
   background: rgb(238, 238, 238);
-  box-shadow: 0 0 2px black;
   margin:0 auto;
 }
 
@@ -32,10 +32,16 @@
 }
 
 .score__button {
-  background-color:  rgb(128, 190, 134);
+  background-color: rgb(77, 182, 87);
+  box-shadow: 0 0 2px black;
   height: 50px;
 }
 
+.score__button:focus {
+  outline: 0;
+}
+
 .score__button:hover {
-  background-color: rgb(15, 201, 33);
+  background-color: rgb(28, 158, 41);
+  color: white;
 }

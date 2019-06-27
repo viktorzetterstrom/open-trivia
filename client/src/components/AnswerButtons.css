@@ -1,20 +1,22 @@
 .answer-buttons {
+  position: relative;
   display:flex;
   flex-direction: column;
   margin-top: 20px;
-};
-
-.answer-button {
-  padding: 10px;
+  box-shadow: 0 0 2px black;
 }
 
 .answer-button {
-  background-color: rgb(152, 128, 190);
+  background-color: rgb(230, 227, 98);
   padding: 10px;
+}
+
+.answer-button + .answer-button {
+  border-top: 0.5px solid yellow;
 }
 
 .answer-button:hover {
-  background-color: rgb(80, 15, 201);
+  background-color: rgb(158, 156, 28);
   color: white;
 }
 

@@ -20,14 +20,16 @@ body {
   }
   .app__header {
     margin: 20px;
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width:800) {
+@media (min-width:800px) {
   .app {
     width: 600px;
   }
   .app__header {
     margin: 30px;
+    font-size: 2.3rem;
   }
 }
