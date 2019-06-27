@@ -1,7 +1,8 @@
 import React from 'react';
+import he from 'he';
 
 export default function Question({ data }) {
   return (
-    <div>{  data }</div>
+    <div>{ he.decode(data) }</div>
   );
 }

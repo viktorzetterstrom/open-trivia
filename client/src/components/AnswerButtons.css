@@ -1,0 +1,23 @@
+.answer-buttons {
+  display:flex;
+  flex-direction: column;
+  margin-top: 20px;
+};
+
+.answer-button {
+  padding: 10px;
+}
+
+.answer-button {
+  background-color: rgb(152, 128, 190);
+  padding: 10px;
+}
+
+.answer-button:hover {
+  background-color: rgb(80, 15, 201);
+  color: white;
+}
+
+.answer-button:focus {
+  outline: 0;
+}

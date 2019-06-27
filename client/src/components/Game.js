@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from './Question';
+import AnswerButtons from './AnswerButtons';
 import './Game.css';
 
 
@@ -11,28 +12,50 @@ const shuffleArray = arr => {
   return arr;
 };
 
-export default function Game({ setRunning, questions}) {
-  const [question, setQuestion] = useState(questions[0]);
-  const [answers, setAnswers] = useState(shuffleArray([
-    question.correct_answer,
-    ...question.incorrect_answers
-  ]));
+const getAnswers = question => shuffleArray([
+  question.correct_answer,
+  ...question.incorrect_answers
+]);
+
+const setupQuestions = questions => {
+  return questions.map(q => {
+    q.answers = getAnswers(q);
+    q.answered = 'no';
+    return q;
+  });
+};
+
+export default function Game({ stop, questions }) {
+  const [activeQ, setActiveQ] = useState(0);
+  const [qList, setQList] = useState(questions);
+
+  useEffect(() => setQList(setupQuestions(questions)), []);
 
   const getNextQuestion = () => {
-    const newQuestion = questions.pop();
-    setQuestion(newQuestion);
-    setAnswers(question);
+    const nextQuestionIndex = questions.map(q => q.answered).indexOf('no');
+    setActiveQ(nextQuestionIndex);
+    if (nextQuestionIndex === -1) stop(questions);
   };
 
-  const processAnswer = () => {
-    
+  const processAnswer = e => {
+    qList[activeQ].answered = e.target.textContent === qList[activeQ].correct_answer
+      ? 'correct'
+      : 'incorrect';
+    getNextQuestion();
   };
 
   return (
     <div className="game">
-      <Question data={question.question} />
-      <div>{ answers }</div>
-      <AnswerButtons answers={answers} clickHandler={processAnswer}/>
+      {
+        activeQ !== -1 && qList[activeQ].answered === 'no'
+          ? (
+            <>
+            <Question data={qList[activeQ].question} />
+            <AnswerButtons answers={qList[activeQ].answers} clickHandler={processAnswer} />
+            </>
+          )
+          : <></>
+      }
     </div>
   );
 }

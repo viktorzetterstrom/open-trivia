@@ -1,9 +1,13 @@
 .options {
-  background-color: beige;
-  margin: 10px;
+  background-color: rgb(238, 238, 238);
   padding: 10px;
   overflow: hidden;
   transition: 0.5s linear;
+}
+
+.options__header {
+  font-size: 1rem;
+  text-align: center;
 }
 
 .options--hidden {
@@ -13,9 +17,20 @@
 
 .options__form {
   display: flex;
+  align-items: stretch;
   flex-direction: column;
+}
+
+.options__form__label {
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  text-align:right;
+  margin: 5px;
 }
 
 .options__form__select {
   text-transform: capitalize;
+  margin: auto;
+  width: 80%;
 }

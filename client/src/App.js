@@ -26,11 +26,6 @@ function App() {
       .then(setQuestions);
   };
 
-  const startGame = () => {
-    setRunning(true);
-    hideOptions();
-  };
-
   useEffect(() => fetchQuestions(gameOptions), [gameOptions]);
   useEffect(() => {
     fetch('/api/options')
@@ -38,13 +33,25 @@ function App() {
       .then(setOptions);
   }, []);
 
+  const startGame = () => {
+    setRunning(true);
+    hideOptions();
+  };
+
+  const stopGame = questions => {
+    const score = questions.filter(q => q.answered === 'correct').length;
+    console.log(score);
+    setRunning(false);
+    showOptions();
+  };
+
   const optionsArea = (disabled) => options !== null
     ? <Options disabled={disabled} changeOptions={setGameOptions} options={options} />
     : <Loader />;
 
   const gameArea = () => {
     if (questions === null) return <Loader />;
-    if (running) return <Game setRunning={setRunning} questions={questions} />;
+    if (running) return <Game stop={stopGame} questions={questions} />;
     return <StartButton clickHandler={startGame} />;
   };
 

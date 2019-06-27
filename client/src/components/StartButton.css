@@ -1,5 +1,15 @@
 .start-button {
+  background-color: rgb(128, 190, 134);
+  color: black;
   margin: auto;
-  width: 100px;
+  width: 100%;
   height: 40px;
+  transition: 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.start-button:hover {
+  background-color: rgb(15, 201, 33);
+  color: white;
 }
