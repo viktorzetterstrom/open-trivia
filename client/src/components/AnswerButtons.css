@@ -9,6 +9,7 @@
 .answer-button {
   background-color: rgb(230, 227, 98);
   padding: 10px;
+  transition: 0.3s ease;
 }
 
 .answer-button + .answer-button {

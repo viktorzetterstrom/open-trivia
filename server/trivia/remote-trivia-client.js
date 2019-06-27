@@ -12,7 +12,6 @@ const createQuery = ({
   const cat = category && category !== 'any' ? `&category=${category}` : '';
   const dif = difficulty && difficulty !== 'any' ? `&difficulty=${difficulty}` : '';
   const tp = type && type !== 'any' ? `&type=${type}` : '';
-  console.log(baseUrl + am + dif + cat + tp);
   return baseUrl + am + dif + cat + tp;
 };
 

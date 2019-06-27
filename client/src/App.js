@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Options from './components/Options';
 import Loader from './components/Loader';
 import StartButton from './components/StartButton';
+import AnswerMessage from './components/AnswerMessage';
 import Game from './components/Game';
 import Score from './components/Score';
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
   };
 
   const stopGame = questions => {
+    document.querySelector('.answer-message').textContent = '';
     const score = questions.filter(q => q.answered === 'correct').length;
     setScore(score);
     setShowScore(true);
@@ -71,6 +73,7 @@ function App() {
       { optionsArea(!running) }
       { gameArea() }
       { scoreArea() }
+      <AnswerMessage />
     </div>
   );
 }

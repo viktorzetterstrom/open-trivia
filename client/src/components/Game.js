@@ -3,7 +3,7 @@ import Question from './Question';
 import AnswerButtons from './AnswerButtons';
 import './Game.css';
 
-export default function Game({ stop, questions }) {
+export default function Game({ setAnswerCorrect, stop, questions }) {
   const [activeQ, setActiveQ] = useState(0);
   const [qList, setQList] = useState(questions);
 
@@ -16,9 +16,13 @@ export default function Game({ stop, questions }) {
   };
 
   const processAnswer = e => {
-    qList[activeQ].answered = e.target.textContent === qList[activeQ].correct_answer
-      ? 'correct'
-      : 'incorrect';
+    if (e.target.textContent === qList[activeQ].correct_answer) {
+      qList[activeQ].answered = 'correct';
+      document.querySelector('.answer-message').textContent = 'CORRECT';
+    } else {
+      qList[activeQ].answered = 'incorrect';
+      document.querySelector('.answer-message').textContent = 'WRONG';
+    }
     flashScreen(qList[activeQ].answered);
     setTimeout(getNextQuestion, 1600);
   };

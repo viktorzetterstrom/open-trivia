@@ -12,7 +12,7 @@ export default function Score({ setShow, score }) {
   return (
     <div class="score__background">
       <div className="score">
-        <h2 className="score__header">You scored</h2>
+        <h2 className="score__header">You scored:</h2>
         <h2 className="score__header">{score}!</h2>
         <p className="score__message">{message}</p>
         <button onClick={() => setShow(false)} className="score__button">Click to keep playing</button>

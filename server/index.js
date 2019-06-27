@@ -5,7 +5,6 @@ const app = express();
 const port = 8080;
 
 app.get('/api/questions', async (req, res) => {
-  console.log(req.query);
   const questions = await triviaService.getQuestions(req.query);
   res.json(questions);
 });
