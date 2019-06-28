@@ -10,7 +10,7 @@ export default function Score({ setShow, score }) {
   else if (score <= 10) message = 'Incredible job!';
 
   return (
-    <div class="score__background">
+    <div className="score__background">
       <div className="score">
         <h2 className="score__header">You scored:</h2>
         <h2 className="score__header score__header--number">{score}</h2>
