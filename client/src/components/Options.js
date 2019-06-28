@@ -30,13 +30,13 @@ export default function Options({ changeOptions, options }) {
         </label>
 
         <label className="options__form__label">Type:
-          <select onChange={handleChange} id="type" className="options__form__select" name="type">
+          <select id="type" className="options__form__select" name="type">
             { options.type.map((t, i) => <option key={i} value={t}>{t}</option>) }
           </select>
         </label>
 
         <label className="options__form__label">Category:
-          <select onChange={handleChange} id="category" className="options__form__select" name="category">
+          <select id="category" className="options__form__select" name="category">
             { options.category.map((c, i) => <option key={i} value={c.id}>{c.name}</option>)}
           </select>
         </label>
