@@ -15,7 +15,7 @@ export default function Score({ setShow, score }) {
         <h2 className="score__header">You scored:</h2>
         <h2 className="score__header score__header--number">{score}</h2>
         <p className="score__message">{message}</p>
-        <button onClick={() => setShow(false)} className="score__button">Click to keep playing</button>
+        <button onClick={() => setTimeout(() => setShow(false), 500)} className="score__button">Click to keep playing</button>
       </div>
     </div>
   );

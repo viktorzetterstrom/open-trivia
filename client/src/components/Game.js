@@ -3,7 +3,7 @@ import Question from './Question';
 import AnswerButtons from './AnswerButtons';
 import './Game.css';
 
-export default function Game({ setAnswerCorrect, stop, questions }) {
+export default function Game({ stop, questions }) {
   const [activeQ, setActiveQ] = useState(0);
   const [qList, setQList] = useState(questions);
 

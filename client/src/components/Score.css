@@ -40,6 +40,11 @@
   background-color: rgb(77, 182, 87);
   box-shadow: 0 0 2px black;
   height: 50px;
+  transition: 0.3s ease;
+}
+
+.score__button:active {
+  transform:scale(0.95);
 }
 
 .score__button:focus {
