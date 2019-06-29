@@ -17,7 +17,7 @@ const createQuery = ({
 
 const getQuestions = async (options = {}) => {
   const response = await fetch(createQuery(options)).then(res => res.json());
-  return response.results;
+  return response;
 };
 
 module.exports = { getQuestions };

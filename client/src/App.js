@@ -27,7 +27,9 @@ function App() {
     const querystring = `type=${type}&difficulty=${difficulty}&category=${category}`;
     fetch(`/api/questions?${querystring}`)
       .then(res => res.json())
-      .then(setQuestions);
+      .then(json => {
+        setQuestions(json.results);
+      });
   };
 
   useEffect(() => fetchQuestions(gameOptions), [gameOptions]);
@@ -57,7 +59,7 @@ function App() {
     : <Loader />;
 
   const gameArea = () => {
-    if (questions === null) return <Loader button={true} />;
+    if (!questions) return <Loader button={true} />;
     if (running) return <Game stop={stopGame} questions={questions} />;
     return <StartButton clickHandler={startGame} />;
   };
