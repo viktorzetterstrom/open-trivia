@@ -1,7 +1,7 @@
 {
-  "name": "hack-day",
+  "name": "Open Trivia implementation",
   "version": "0.0.1",
-  "description": "Setup for hack-day at </salt>",
+  "description": "Open Trivia implementation made at HackDay at </salt>",
   "main": "index.js",
   "scripts": {
     "start-server": "cd server && npm start",
