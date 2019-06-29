@@ -1,5 +1,5 @@
 {
-  "name": "Open Trivia implementation",
+  "name": "salt-open-trivia",
   "version": "0.0.1",
   "description": "Open Trivia implementation made at HackDay at </salt>",
   "main": "index.js",
