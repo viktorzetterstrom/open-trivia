@@ -3,7 +3,7 @@
 This project was created by me in one day at the School of Applied Technology as a part of Hack-day.
 
 ## Usage
- Clone the repository and install both the client and the server with your package manager of choice. Start the application from the root folder by running
+ Clone the repository and install both the client and the server with npm. Start the application from the root folder by running
 * `npm run start-server`
 * `npm run start-client`
 
